@@ -203,3 +203,91 @@ function Person(name, age, eyeColor) {
 
 let person01 = new Person("carlo", 20, "black");
 let person02 = new Person("john", 21, "black");
+
+// array and array methods
+
+const items = [
+  { name: "Bike", price: 25 },
+  { name: "Keyboard", price: 1000 },
+  { name: "Computer", price: 500 },
+  { name: "Phone", price: 5 },
+  { name: "Book", price: 10 },
+  { name: "Album", price: 200 },
+  { name: "TV", price: 100 },
+];
+
+// filter
+
+const filteredItems = items.filter((item) => {
+  return item.price <= 100;
+}); // returns the items with a price of less than or     equal to 100
+
+console.log(filteredItems);
+
+// map = returns only the specified object
+
+const itemNames = items.map((item) => {
+  return item.name;
+});
+
+console.log(itemNames);
+
+const itemPrice = items.map((item) => {
+  return item.price;
+});
+
+console.log(itemPrice);
+
+// find = finds only the specific object
+
+const foundItem = items.find((item) => {
+  return item.name === "Bike";
+});
+
+console.log(foundItem);
+
+// for each = loops all the objects indicated as parameter
+
+items.forEach((item) => {
+  console.log(item.name);
+});
+
+items.forEach((item) => {
+  console.log(item.price);
+});
+
+// some = will only return true or false if the return condition is satisfied
+
+const hasInexpensiveItems = items.some((item) => {
+  return item.price <= 100;
+}); // return true
+
+const hasExpensiveItems = items.some((item) => {
+  return item.price >= 20000;
+}); // return false
+
+console.log(hasInexpensiveItems);
+console.log(hasExpensiveItems);
+
+// every = checks every item in the array if it meets the condition
+
+const inexpensiveItems = items.every((item) => {
+  return item.price <= 100;
+}); // return false because there is an item with a value of > 100
+
+console.log(inexpensiveItems);
+
+// reduce
+
+const total = items.reduce((currentTotal, item) => {
+  return item.price + currentTotal;
+}, 0); // reduce method runs for every items in the array
+
+console.log(total);
+
+// include = checks if the item is included in the array then returns true if true, false if false
+
+const itemList = [1, 2, 3, 4, 5, 6, 7];
+const includesNumber = itemList.includes(5);
+
+console.log(includesNumber);
