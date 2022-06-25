@@ -291,3 +291,78 @@ const itemList = [1, 2, 3, 4, 5, 6, 7];
 const includesNumber = itemList.includes(5);
 
 console.log(includesNumber);
+
+// array destructuring
+
+const alphabet = ["A", "B", "C", "D", "E"];
+const numbers = ["1", "2", "3", "4", "5"];
+
+const [a, , c, ...letters] = alphabet;
+
+const newArray = [...alphabet, ...numbers]; // spread operator lists all the array in the variable
+
+console.log(a, c);
+console.log(letters);
+console.log(newArray); // returns all the array alphabet and numbers
+
+function sumAndMultiply(a, b) {
+  return [a + b, a * b];
+}
+
+const array = sumAndMultiply(2, 3);
+
+console.log(array);
+
+// object destructuring
+
+const firstPerson = {
+  firstName: "Carlo",
+  age: 21,
+  address: {
+    city: "city",
+    state: "state",
+  },
+};
+const secondPerson = {
+  firstName: "Jose",
+  age: 20,
+  address: {
+    city: "city",
+    state: "state",
+  },
+};
+
+const {
+  firstName,
+  age,
+  address: { city },
+} = firstPerson;
+
+console.log(firstName);
+console.log(age);
+console.log(city);
+
+// destructures the firstPerson to only get the firstName and age
+function printUser({ firstName, age }) {
+  console.log(`My name is : ${firstName}. Age is ${age}`);
+}
+
+printUser(firstPerson);
+
+// conditional operator = shortcut for if-else statement
+
+var ageNumber = 15;
+
+console.log(ageNumber >= 18 ? "adult" : "not adult");
+
+// if (ageNumber >= 18) {
+//   console.log("adult");
+// } else {
+//   console.log("not adult");
+// }
+
+var firstCheck = false,
+  secondCheck = false,
+  access = firstCheck ? "denied" : secondCheck ? "denied" : "granted";
+
+console.log(access); // returns granted 
